@@ -33,9 +33,11 @@ const HeroesList = () => {
   // -----------delete heroes
   const deleteHeroes = useCallback(
     (id) => {
-      request(`http://localhost:3001/heroes/${id}`, "DELETE").then(() =>
-        dispatch(heroesDelete(id)).catch((e) => console.log(e))
-      );
+      request(`http://localhost:3001/heroes/${id}`, "DELETE")
+        .then(() => {
+          dispatch(heroesDelete(id));
+        })
+        .catch((e) => console.log(e));
     },
     [request]
   );

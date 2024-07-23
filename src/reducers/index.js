@@ -28,6 +28,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         heroes: state.heroes.filter((elem) => elem.id !== action.payload),
       };
+    case "ADD_HEROES":
+      return { ...state, heroes: [...state.heroes, action.payload] };
+
+    case "ADD_FILTERS":
+      return { ...state, filters: action.payload };
 
     default:
       return state;

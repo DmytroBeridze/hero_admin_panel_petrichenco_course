@@ -19,35 +19,32 @@
       "element": "water"
     },
     {
-      "id": 4,
-      "name": "Первый герой",
-      "description": "Первый герой в рейтинге!",
-      "element": "fire"
-    },
-    {
-      "id": 5,
-      "name": "Неизвестный герой",
-      "description": "Скрывающийся в тени",
-      "element": "wind"
-    },
-    {
-      "id": 6,
-      "name": "Морской герой",
-      "description": "Как аквамен, но не из DC",
-      "element": "water"
-    },
-    {
-      "id": 7,
-      "name": "Первый герой",
-      "description": "Первый герой в рейтинге!",
-      "element": "fire"
-    },
-    {
-      "id": 8,
-      "name": "Неизвестный герой",
-      "description": "Скрывающийся в тени",
-      "element": "wind"
+      "name": "Dimon",
+      "description": "addFilters",
+      "element": "earth",
+      "id": "27984286-090f-447b-a0dd-65d2ad1c8c9d"
     }
   ],
-  "filters": ["all", "fire", "water", "wind", "earth"]
+  "filters": [
+    {
+      "value": "all",
+      "name": ""
+    },
+    {
+      "value": "fire",
+      "name": "Огонь"
+    },
+    {
+      "value": "water",
+      "name": "Вода"
+    },
+    {
+      "value": "wind",
+      "name": "Ветер"
+    },
+    {
+      "value": "earth",
+      "name": "Земля"
+    }
+  ]
 }
