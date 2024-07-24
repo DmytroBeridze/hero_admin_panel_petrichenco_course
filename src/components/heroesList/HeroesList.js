@@ -12,15 +12,16 @@ import HeroesListItem from "../heroesListItem/HeroesListItem";
 import Spinner from "../spinner/Spinner";
 
 // Задача для этого компонента:
-// При клике на "крестик" идет удаление персонажа из общего состояния
+// *При клике на "крестик" идет удаление персонажа из общего состояния
 // Усложненная задача:
-// Удаление идет и с json файла при помощи метода DELETE
+// *Удаление идет и с json файла при помощи метода DELETE
 
 const HeroesList = () => {
-  const { heroes, heroesLoadingStatus } = useSelector((state) => state);
+  const { heroes, heroesLoadingStatus, heroesFiltered } = useSelector(
+    (state) => state
+  );
   const dispatch = useDispatch();
   const { request } = useHttp();
-
   useEffect(() => {
     dispatch(heroesFetching());
     request("http://localhost:3001/heroes")
@@ -54,7 +55,8 @@ const HeroesList = () => {
     });
   };
 
-  const elements = renderHeroesList(heroes);
+  const elements = renderHeroesList(heroesFiltered);
+  // const elements = renderHeroesList(heroes);
   return <ul>{elements}</ul>;
 };
 
