@@ -11,7 +11,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useEffect, useState } from "react";
 import { useHttp } from "../../hooks/http.hook";
 import { useDispatch, useSelector } from "react-redux";
-import { addHeroes, addFilters } from "../../actions";
+import { addHeroes, addFilters, filteredHeroes } from "../../actions";
 const HeroesAddForm = () => {
   const [formState, setFormState] = useState({});
   const { request } = useHttp();
@@ -39,8 +39,8 @@ const HeroesAddForm = () => {
     <form
       className="border p-4 shadow-lg rounded"
       onSubmit={(e) => {
-        setFormState((formState) => ({ ...formState, id: uuidv4() }));
         e.preventDefault();
+        setFormState((formState) => ({ ...formState, id: uuidv4() }));
         addPerson(formState);
       }}
     >

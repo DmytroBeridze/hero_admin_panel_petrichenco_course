@@ -7,6 +7,8 @@ import {
   heroesFetched,
   heroesFetchingError,
   heroesDelete,
+  toggleFilterType,
+  filteredHeroes,
 } from "../../actions/index.js";
 import HeroesListItem from "../heroesListItem/HeroesListItem";
 import Spinner from "../spinner/Spinner";
@@ -17,7 +19,9 @@ import Spinner from "../spinner/Spinner";
 //* Удаление идет и с json файла при помощи метода DELETE
 
 const HeroesList = () => {
-  const { heroes, heroesLoadingStatus } = useSelector((state) => state);
+  const { heroes, heroesFiltered, heroesLoadingStatus } = useSelector(
+    (state) => state
+  );
   const dispatch = useDispatch();
   const { request } = useHttp();
 
@@ -25,12 +29,14 @@ const HeroesList = () => {
     dispatch(heroesFetching());
     request("http://localhost:3001/heroes")
       .then((data) => dispatch(heroesFetched(data)))
+      .then(() => dispatch(toggleFilterType("all")))
       .catch(() => dispatch(heroesFetchingError()));
 
     // eslint-disable-next-line
   }, []);
 
   // -----------delete heroes
+
   const deleteHeroes = useCallback(
     (id) => {
       request(`http://localhost:3001/heroes/${id}`, "DELETE")
@@ -64,7 +70,9 @@ const HeroesList = () => {
     });
   };
 
-  const elements = renderHeroesList(heroes);
+  const elements = renderHeroesList(heroesFiltered);
+
+  // const elements = renderHeroesList(heroes);
   return <ul>{elements}</ul>;
 };
 

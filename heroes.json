@@ -1,50 +1,61 @@
 {
   "heroes": [
     {
-      "id": 1,
-      "name": "Первый герой",
-      "description": "Первый герой в рейтинге!",
-      "element": "fire"
-    },
-    {
-      "id": 2,
-      "name": "Неизвестный герой",
-      "description": "Скрывающийся в тени",
-      "element": "wind"
-    },
-    {
-      "id": 3,
-      "name": "Морской герой",
-      "description": "Как аквамен, но не из DC",
-      "element": "water"
+      "name": "Dimon",
+      "description": "newHeroList",
+      "element": "earth",
+      "id": "DB2reuM"
     },
     {
       "name": "Dimon",
-      "description": "addFilters",
-      "element": "earth",
-      "id": "27984286-090f-447b-a0dd-65d2ad1c8c9d"
+      "description": "filterType",
+      "element": "fire",
+      "id": "zEzWRdO"
+    },
+    {
+      "name": "Dimon",
+      "description": "filterType",
+      "element": "water",
+      "id": "da4bfce8-34b7-45cf-8aa3-57b57421b8d4"
+    },
+    {
+      "name": "Thor",
+      "description": "elemClass",
+      "element": "wind",
+      "id": "22b4f0ea-c275-44fa-8af7-d965aa65adf9"
+    },
+    {
+      "name": "cowboy bebop",
+      "description": "filterType",
+      "element": "wind",
+      "id": "e5tzF4f"
     }
   ],
   "filters": [
     {
       "value": "all",
-      "name": ""
+      "name": "Все",
+      "elemClass": "btn-outline-dark"
     },
     {
       "value": "fire",
-      "name": "Огонь"
+      "name": "Огонь",
+      "elemClass": "btn-danger"
     },
     {
       "value": "water",
-      "name": "Вода"
+      "name": "Вода",
+      "elemClass": "btn btn-primary"
     },
     {
       "value": "wind",
-      "name": "Ветер"
+      "name": "Ветер",
+      "elemClass": "btn-success"
     },
     {
       "value": "earth",
-      "name": "Земля"
+      "name": "Земля",
+      "elemClass": "btn-secondary"
     }
   ]
 }

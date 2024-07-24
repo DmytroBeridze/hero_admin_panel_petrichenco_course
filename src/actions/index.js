@@ -1,3 +1,5 @@
+import { type } from "@testing-library/user-event/dist/cjs/utility/type.js";
+
 export const heroesFetching = () => {
   return {
     type: "HEROES_FETCHING",
@@ -34,5 +36,19 @@ export const addFilters = (data) => {
   return {
     type: "ADD_FILTERS",
     payload: data,
+  };
+};
+
+export const toggleFilterType = (type) => {
+  return {
+    type: "FILTER_TYPE",
+    payload: type,
+  };
+};
+
+export const filteredHeroes = (value) => {
+  return {
+    type: "FILTERED_HEROES",
+    payload: value,
   };
 };
