@@ -1,29 +1,79 @@
 {
-    "heroes": [
-        {
-            "id": 1,
-            "name": "Первый герой",
-            "description": "Первый герой в рейтинге!",
-            "element": "fire"
-        },
-        {
-            "id": 2,
-            "name": "Неизвестный герой",
-            "description": "Скрывающийся в тени",
-            "element": "wind"
-        },
-        {
-            "id": 3,
-            "name": "Морской герой",
-            "description": "Как аквамен, но не из DC",
-            "element": "water"
-        }
-    ],
-    "filters": [
-        "all",
-        "fire",
-        "water",
-        "wind",
-        "earth"
-    ]
+  "heroes": [
+    {
+      "id": 1,
+      "name": "Первый герой",
+      "description": "Первый герой в рейтинге!",
+      "element": "fire"
+    },
+    {
+      "id": 2,
+      "name": "Неизвестный герой",
+      "description": "Скрывающийся в тени",
+      "element": "wind"
+    },
+    {
+      "id": 3,
+      "name": "Морской герой",
+      "description": "Как аквамен, но не из DC",
+      "element": "water"
+    },
+    {
+      "id": 9,
+      "name": "Морской герой",
+      "description": "Как аквамен, но не из DC",
+      "element": "earth"
+    },
+    {
+      "name": "Thor",
+      "description": "element",
+      "element": "fire",
+      "id": 10
+    },
+    {
+      "name": "Thor",
+      "description": "element",
+      "element": "fire",
+      "id": "400ffe93-c594-4a43-af1c-80407159731a"
+    },
+    {
+      "name": "Thor",
+      "description": "element",
+      "element": "water",
+      "id": "485277c9-f3b2-4d62-a8d0-a10e9f2edca9"
+    },
+    {
+      "name": "Thor",
+      "description": "element",
+      "element": "earth",
+      "id": "c86d4293-ecba-41da-8e62-db0fb0da789e"
+    }
+  ],
+  "filters": [
+    {
+      "element": "all",
+      "name": "Все",
+      "elemStyle": "btn-outline-dark"
+    },
+    {
+      "element": "fire",
+      "name": "Огонь",
+      "elemStyle": "btn-danger"
+    },
+    {
+      "element": "water",
+      "name": "Вода",
+      "elemStyle": "btn-primary"
+    },
+    {
+      "element": "wind",
+      "name": "Ветер",
+      "elemStyle": "btn-success"
+    },
+    {
+      "element": "earth",
+      "name": "Земля",
+      "elemStyle": "btn-secondary"
+    }
+  ]
 }
