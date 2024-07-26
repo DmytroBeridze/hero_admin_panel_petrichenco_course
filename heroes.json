@@ -29,6 +29,12 @@
       "description": "filterType",
       "element": "wind",
       "id": "e5tzF4f"
+    },
+    {
+      "name": "cowboy bebop",
+      "description": "sample_1",
+      "element": "earth",
+      "id": "6Gv2hUl"
     }
   ],
   "filters": [
