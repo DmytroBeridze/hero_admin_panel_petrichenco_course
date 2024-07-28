@@ -12,6 +12,7 @@ import {
 } from "../../actions/index.js";
 import HeroesListItem from "../heroesListItem/HeroesListItem";
 import Spinner from "../spinner/Spinner";
+import { createSelector } from "reselect";
 
 // Задача для этого компонента:
 //* При клике на "крестик" идет удаление персонажа из общего состояния
@@ -19,9 +20,16 @@ import Spinner from "../spinner/Spinner";
 //* Удаление идет и с json файла при помощи метода DELETE
 
 const HeroesList = () => {
-  const { heroes, heroesFiltered, heroesLoadingStatus } = useSelector(
-    (state) => state
+  console.log("|!!!");
+  const { heroes, heroesLoadingStatus } = useSelector(
+    (state) => state.heroesReducer
   );
+
+  // const { filterType } = useSelector((state) => state.filterReducer);
+
+  // const { heroes, heroesLoadingStatus, filterType } = useSelector(
+  //   (state) => state
+  // );
   const dispatch = useDispatch();
   const { request } = useHttp();
 
@@ -35,8 +43,45 @@ const HeroesList = () => {
     // eslint-disable-next-line
   }, []);
 
-  // -----------delete heroes
+  // -------------filter heroes
+  // ---memoised
+  const heroesFilteredMemois = createSelector(
+    (state) => state.heroesReducer.heroes,
+    (state) => state.filterReducer.filterType,
+    (heroes, filterType) => {
+      if (filterType === "all") {
+        return heroes;
+      } else return heroes.filter((elem) => elem.element === filterType);
+    }
+  );
 
+  const heroesFiltered = useSelector(heroesFilteredMemois);
+
+  // const heroesFiltered = useSelector((state) => {
+  //   if (state.filterReducer.filterType === "all") {
+  //     return state.heroesReducer.heroes;
+  //   } else
+  //     return state.heroesReducer.heroes.filter(
+  //       (elem) => elem.element === state.filterReducer.filterType
+  //     );
+  // });
+
+  // const heroesFiltered = useSelector((state) => {
+  //   if (state.filterReducer.filterType === "all") {
+  //     return state.heroesReducer.heroes;
+  //   } else
+  //     return state.heroesReducer.heroes.filter(
+  //       (elem) => elem.element === state.filterReducer.filterType
+  //     );
+  // });
+
+  // const heroesFiltered = () => {
+  //   if (filterType === "all") {
+  //     return heroes;
+  //   } else return heroes.filter((elem) => elem.element === filterType);
+  // };
+
+  // -----------delete heroes
   const deleteHeroes = useCallback(
     (id) => {
       request(`http://localhost:3001/heroes/${id}`, "DELETE")
@@ -69,7 +114,6 @@ const HeroesList = () => {
       );
     });
   };
-
   const elements = renderHeroesList(heroesFiltered);
 
   // const elements = renderHeroesList(heroes);
