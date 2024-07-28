@@ -10,7 +10,7 @@ import classNames from "classnames";
 
 const HeroesFilters = () => {
   const dispatch = useDispatch();
-  const { filters, filterType } = useSelector((state) => state);
+  const { filters, filterType } = useSelector((state) => state.filterReducer);
 
   return (
     <div className="card shadow-lg mt-4">
@@ -18,49 +18,6 @@ const HeroesFilters = () => {
         <p className="card-text">Отфильтруйте героев по элементам</p>
         <div className="btn-group">
           <View filters={filters} dispatch={dispatch} filterType={filterType} />
-          {/* <button
-            className="btn btn-outline-dark active"
-            onClick={(e) => {
-              dispatch(toggleFilterType("all"));
-              // dispatch(filteredHeroes("all"));
-            }}
-          >
-            Все
-          </button>
-          <button
-            className="btn btn-danger"
-            onClick={(e) => {
-              console.log();
-              dispatch(toggleFilterType("fire"));
-              // dispatch(filteredHeroes("fire"));
-            }}
-          >
-            Огонь
-          </button>
-          <button
-            className="btn btn-primary"
-            onClick={(e) => {
-              dispatch(toggleFilterType("water"));
-            }}
-          >
-            Вода
-          </button>
-          <button
-            className="btn btn-success"
-            onClick={(e) => {
-              dispatch(toggleFilterType("wind"));
-            }}
-          >
-            Ветер
-          </button>
-          <button
-            className="btn btn-secondary"
-            onClick={(e) => {
-              dispatch(toggleFilterType("earth"));
-            }}
-          >
-            Земля
-          </button> */}
         </div>
       </div>
     </div>

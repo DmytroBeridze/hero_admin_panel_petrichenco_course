@@ -9,12 +9,6 @@
     {
       "name": "Dimon",
       "description": "filterType",
-      "element": "fire",
-      "id": "zEzWRdO"
-    },
-    {
-      "name": "Dimon",
-      "description": "filterType",
       "element": "water",
       "id": "da4bfce8-34b7-45cf-8aa3-57b57421b8d4"
     },
@@ -25,16 +19,40 @@
       "id": "22b4f0ea-c275-44fa-8af7-d965aa65adf9"
     },
     {
-      "name": "cowboy bebop",
-      "description": "filterType",
+      "name": "Thor",
+      "description": "heroesFiltered",
       "element": "wind",
-      "id": "e5tzF4f"
+      "id": "t_ihcKy"
     },
     {
       "name": "cowboy bebop",
-      "description": "sample_1",
-      "element": "earth",
-      "id": "6Gv2hUl"
+      "description": "ыукеркеоокуе",
+      "element": "water",
+      "id": "Cpm5ryc"
+    },
+    {
+      "name": "Thor",
+      "description": "newHero",
+      "element": "fire",
+      "id": "mnVEkmG"
+    },
+    {
+      "name": "cowboy bebop",
+      "description": "filterReducer",
+      "element": "fire",
+      "id": "GOkM7o0"
+    },
+    {
+      "name": "Dimon",
+      "description": "filterType",
+      "element": "fire",
+      "id": "1RUCGDd"
+    },
+    {
+      "name": "Dimon",
+      "description": "filterType",
+      "element": "wind",
+      "id": "fe1c0b33-a977-4298-862e-ecfb84543b13"
     }
   ],
   "filters": [

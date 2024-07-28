@@ -1,6 +1,7 @@
 import { useHttp } from "../../hooks/http.hook";
 import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { createSelector } from "reselect";
 
 import {
   heroesFetching,
@@ -19,9 +20,7 @@ import Spinner from "../spinner/Spinner";
 //* Удаление идет и с json файла при помощи метода DELETE
 
 const HeroesList = () => {
-  const { heroes, heroesFiltered, heroesLoadingStatus } = useSelector(
-    (state) => state
-  );
+  const heroesLoadingStatus = useSelector((state) => state.herosReducer);
   const dispatch = useDispatch();
   const { request } = useHttp();
 
@@ -31,9 +30,29 @@ const HeroesList = () => {
       .then((data) => dispatch(heroesFetched(data)))
       .then(() => dispatch(toggleFilterType("all")))
       .catch(() => dispatch(heroesFetchingError()));
-
-    // eslint-disable-next-line
   }, []);
+
+  const selector = createSelector(
+    (state) => state.filterReducer.filterType,
+    (state) => state.herosReducer.heroes,
+    (filterType, heroes) => {
+      console.log("!!!");
+      if (filterType === "all") {
+        return heroes;
+      } else return heroes.filter((elem) => elem.element === filterType);
+    }
+  );
+  const heroesFiltered = useSelector(selector);
+
+  // const heroesFiltered = useSelector((state) => {
+  //   console.log("!!!");
+  //   if (state.filterReducer.filterType === "all") {
+  //     return state.herosReducer.heroes;
+  //   } else
+  //     return state.herosReducer.heroes.filter(
+  //       (elem) => elem.element === state.filterReducer.filterType
+  //     );
+  // });
 
   // -----------delete heroes
 
