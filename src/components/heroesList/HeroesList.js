@@ -72,7 +72,6 @@ const HeroesList = () => {
 
   const elements = renderHeroesList(heroesFiltered);
 
-  // const elements = renderHeroesList(heroes);
   return <ul>{elements}</ul>;
 };
 
