@@ -19,28 +19,16 @@
       "element": "water"
     },
     {
-      "id": 4,
-      "name": "Первый герой",
-      "description": "Первый герой в рейтинге!",
-      "element": "fire"
-    },
-    {
       "name": "Dimon",
-      "description": "state,heroes",
-      "element": "earth",
-      "id": 5
-    },
-    {
-      "name": "Dimon",
-      "description": "state,heroes",
-      "element": "water",
-      "id": "4251e53e-c8f0-47c4-92fb-1b9e3b5b5418"
-    },
-    {
-      "name": "Thor",
-      "description": "state,heroes",
+      "description": "filetredMemoisHeroesList",
       "element": "fire",
-      "id": "a9fffeef-4b19-4565-a146-b09f722c448d"
+      "id": 4
+    },
+    {
+      "name": "Dimon2",
+      "description": "filetredMemoisHeroesList",
+      "element": "earth",
+      "id": "76abf1df-d024-472a-89bb-f2ddc5789953"
     }
   ],
   "filters": [

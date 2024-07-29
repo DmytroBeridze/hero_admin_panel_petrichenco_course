@@ -12,7 +12,7 @@ import { filtersGet, filterTypeToggle } from "../../actions";
 import classNames from "classnames";
 const HeroesFilters = () => {
   const { request } = useHttp();
-  const { filters, filterType } = useSelector((state) => state);
+  const { filters, filterType } = useSelector((state) => state.filterRuducer);
   const dispatch = useDispatch();
   const getFilters = () => {
     request("http://localhost:3001/filters").then((data) =>

@@ -1,6 +1,7 @@
 import { useHttp } from "../../hooks/http.hook";
 import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { createSelector } from "reselect";
 
 import {
   heroesFetching,
@@ -17,9 +18,7 @@ import Spinner from "../spinner/Spinner";
 // *Удаление идет и с json файла при помощи метода DELETE
 
 const HeroesList = () => {
-  const { heroes, filterType, heroesLoadingStatus } = useSelector(
-    (state) => state
-  );
+  const { heroesLoadingStatus } = useSelector((state) => state.heroesReducer);
   const dispatch = useDispatch();
   const { request } = useHttp();
 
@@ -31,12 +30,25 @@ const HeroesList = () => {
       .catch(() => dispatch(heroesFetchingError()));
   }, []);
 
-  // ---------filtered elements
-  const heroesFilter = () => {
-    if (filterType === "all") {
-      return heroes;
-    } else return heroes.filter((elem) => elem.element === filterType);
-  };
+  const filetredMemoisHeroesList = createSelector(
+    (state) => state.heroesReducer.heroes,
+    (state) => state.filterRuducer.filterType,
+    (heroes, filterType) => {
+      if (filterType === "all") {
+        return heroes;
+      } else return heroes.filter((elem) => elem.element === filterType);
+    }
+  );
+  const heroesFilter = useSelector(filetredMemoisHeroesList);
+
+  // const heroesFilter = useSelector((state) => {
+  //   if (state.filterRuducer.filterType === "all") {
+  //     return state.heroesReducer.heroes;
+  //   } else
+  //     return state.heroesReducer.heroes.filter(
+  //       (elem) => elem.element === state.filterRuducer.filterType
+  //     );
+  // });
 
   // ---------delete element
   const deleteElement = useCallback(
@@ -70,7 +82,7 @@ const HeroesList = () => {
     });
   };
 
-  const elements = renderHeroesList(heroesFilter());
+  const elements = renderHeroesList(heroesFilter);
   return <ul>{elements}</ul>;
 };
 

@@ -15,7 +15,7 @@ import { useHttp } from "../../hooks/http.hook";
 import { addPerson } from "../../actions";
 
 const HeroesAddForm = () => {
-  const { filters } = useSelector((state) => state);
+  const { filters } = useSelector((state) => state.filterRuducer);
   const [formData, setFormdata] = useState({});
   const { request } = useHttp();
   const dispatch = useDispatch();
