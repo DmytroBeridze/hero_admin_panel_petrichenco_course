@@ -1,31 +1,52 @@
 import { useHttp } from "../../hooks/http.hook";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import {
   heroesFetching,
   heroesFetched,
   heroesFetchingError,
+  heroesDelete,
 } from "../../actions";
 import HeroesListItem from "../heroesListItem/HeroesListItem";
 import Spinner from "../spinner/Spinner";
 
 // Задача для этого компонента:
-// При клике на "крестик" идет удаление персонажа из общего состояния
+// *При клике на "крестик" идет удаление персонажа из общего состояния
 // Усложненная задача:
-// Удаление идет и с json файла при помощи метода DELETE
+// *Удаление идет и с json файла при помощи метода DELETE
 
 const HeroesList = () => {
-  const { heroes, heroesLoadingStatus } = useSelector((state) => state);
+  const { heroes, filterType, heroesLoadingStatus } = useSelector(
+    (state) => state
+  );
   const dispatch = useDispatch();
   const { request } = useHttp();
 
+  // ---------get elements
   useEffect(() => {
     dispatch(heroesFetching());
     request("http://localhost:3001/heroes")
       .then((data) => dispatch(heroesFetched(data)))
       .catch(() => dispatch(heroesFetchingError()));
   }, []);
+
+  // ---------filtered elements
+  const heroesFilter = () => {
+    if (filterType === "all") {
+      return heroes;
+    } else return heroes.filter((elem) => elem.element === filterType);
+  };
+
+  // ---------delete element
+  const deleteElement = useCallback(
+    (id) => {
+      request(`http://localhost:3001/heroes/${id}`, "DELETE").then(() => {
+        dispatch(heroesDelete(id));
+      });
+    },
+    [request]
+  );
 
   if (heroesLoadingStatus === "loading") {
     return <Spinner />;
@@ -39,11 +60,17 @@ const HeroesList = () => {
     }
 
     return arr.map(({ id, ...props }) => {
-      return <HeroesListItem key={id} {...props} />;
+      return (
+        <HeroesListItem
+          key={id}
+          {...props}
+          deleteElement={() => deleteElement(id)}
+        />
+      );
     });
   };
 
-  const elements = renderHeroesList(heroes);
+  const elements = renderHeroesList(heroesFilter());
   return <ul>{elements}</ul>;
 };
 

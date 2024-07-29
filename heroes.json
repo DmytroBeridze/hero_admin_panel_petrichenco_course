@@ -17,8 +17,57 @@
       "name": "Морской герой",
       "description": "Как аквамен, но не из DC",
       "element": "water"
+    },
+    {
+      "id": 4,
+      "name": "Первый герой",
+      "description": "Первый герой в рейтинге!",
+      "element": "fire"
+    },
+    {
+      "name": "Dimon",
+      "description": "state,heroes",
+      "element": "earth",
+      "id": 5
+    },
+    {
+      "name": "Dimon",
+      "description": "state,heroes",
+      "element": "water",
+      "id": "4251e53e-c8f0-47c4-92fb-1b9e3b5b5418"
+    },
+    {
+      "name": "Thor",
+      "description": "state,heroes",
+      "element": "fire",
+      "id": "a9fffeef-4b19-4565-a146-b09f722c448d"
     }
   ],
-
-  "filters": ["all", "fire", "water", "wind", "earth"]
+  "filters": [
+    {
+      "name": "Все",
+      "element": "all",
+      "classElem": "btn-outline-dark"
+    },
+    {
+      "name": "Огонь",
+      "element": "fire",
+      "classElem": "btn-danger"
+    },
+    {
+      "name": "Вода",
+      "element": "water",
+      "classElem": "btn-primary"
+    },
+    {
+      "name": "Ветер",
+      "element": "wind",
+      "classElem": "btn-success"
+    },
+    {
+      "name": "Земля",
+      "element": "earth",
+      "classElem": "btn-secondary"
+    }
+  ]
 }
