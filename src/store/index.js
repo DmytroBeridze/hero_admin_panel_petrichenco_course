@@ -25,8 +25,8 @@ const store = createStore(
   reducer,
 
   compose(
-    applyMiddleware(middleWare),
-    applyMiddleware(thunk),
+    applyMiddleware(middleWare, thunk),
+
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 );
