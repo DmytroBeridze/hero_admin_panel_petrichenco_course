@@ -7,12 +7,6 @@
       "element": "fire"
     },
     {
-      "id": 2,
-      "name": "Неизвестный герой",
-      "description": "Скрывающийся в тени",
-      "element": "wind"
-    },
-    {
       "id": 3,
       "name": "Морской герой",
       "description": "Как аквамен, но не из DC",
@@ -25,10 +19,16 @@
       "id": 4
     },
     {
-      "name": "Dimon2",
-      "description": "filetredMemoisHeroesList",
+      "name": "Dimon",
+      "description": "\nsthdtyjtryj",
       "element": "earth",
-      "id": "76abf1df-d024-472a-89bb-f2ddc5789953"
+      "id": 5
+    },
+    {
+      "name": "Dimon",
+      "description": "applyMiddleware",
+      "element": "wind",
+      "id": 6
     }
   ],
   "filters": [

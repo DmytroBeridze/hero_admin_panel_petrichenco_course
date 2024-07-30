@@ -1,4 +1,17 @@
-import { type } from "@testing-library/user-event/dist/cjs/utility/type.js";
+// ---fetch heroes with thunk
+export const fetchHeroes = (request) => (dispatch) => {
+  dispatch(heroesFetching());
+  request("http://localhost:3001/heroes")
+    .then((data) => dispatch(heroesFetched(data)))
+    .catch(() => dispatch(heroesFetchingError()));
+};
+
+// ----fetch filters with thunk
+export const fetchFilters = (request) => (dispatch) => {
+  request("http://localhost:3001/filters").then((data) =>
+    dispatch(filtersGet(data))
+  );
+};
 
 export const heroesFetching = () => {
   return {

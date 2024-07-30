@@ -8,16 +8,18 @@
 import { useEffect } from "react";
 import { useHttp } from "../../hooks/http.hook";
 import { useSelector, useDispatch } from "react-redux";
-import { filtersGet, filterTypeToggle } from "../../actions";
+import { fetchFilters, filtersGet, filterTypeToggle } from "../../actions";
 import classNames from "classnames";
 const HeroesFilters = () => {
   const { request } = useHttp();
   const { filters, filterType } = useSelector((state) => state.filterRuducer);
   const dispatch = useDispatch();
+
   const getFilters = () => {
-    request("http://localhost:3001/filters").then((data) =>
-      dispatch(filtersGet(data))
-    );
+    dispatch(fetchFilters(request));
+    // request("http://localhost:3001/filters").then((data) =>
+    //   dispatch(filtersGet(data))
+    // );
   };
   useEffect(() => {
     getFilters();

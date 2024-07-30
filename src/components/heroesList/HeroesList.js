@@ -4,10 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { createSelector } from "reselect";
 
 import {
-  heroesFetching,
-  heroesFetched,
-  heroesFetchingError,
+  // heroesFetching,
+  // heroesFetched,
+  // heroesFetchingError,
+
   heroesDelete,
+  fetchHeroes,
 } from "../../actions";
 import HeroesListItem from "../heroesListItem/HeroesListItem";
 import Spinner from "../spinner/Spinner";
@@ -24,11 +26,11 @@ const HeroesList = () => {
 
   // ---------get elements
   useEffect(() => {
-    // dispatch("HEROES_FETCHING");
-    dispatch(heroesFetching());
-    request("http://localhost:3001/heroes")
-      .then((data) => dispatch(heroesFetched(data)))
-      .catch(() => dispatch(heroesFetchingError()));
+    dispatch(fetchHeroes(request));
+    // dispatch(heroesFetching());
+    // request("http://localhost:3001/heroes")
+    //   .then((data) => dispatch(heroesFetched(data)))
+    //   .catch(() => dispatch(heroesFetchingError()));
   }, []);
 
   const filetredMemoisHeroesList = createSelector(
