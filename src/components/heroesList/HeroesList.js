@@ -24,8 +24,8 @@ const HeroesList = () => {
 
   // ---------get elements
   useEffect(() => {
-    dispatch("HEROES_FETCHING");
-    // dispatch(heroesFetching());
+    // dispatch("HEROES_FETCHING");
+    dispatch(heroesFetching());
     request("http://localhost:3001/heroes")
       .then((data) => dispatch(heroesFetched(data)))
       .catch(() => dispatch(heroesFetchingError()));
