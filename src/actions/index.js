@@ -1,3 +1,5 @@
+import { createAction } from "@reduxjs/toolkit";
+
 // ---fetch heroes with thunk
 export const fetchHeroes = (request) => (dispatch) => {
   dispatch(heroesFetching());
@@ -19,12 +21,14 @@ export const heroesFetching = () => {
   };
 };
 
-export const heroesFetched = (heroes) => {
-  return {
-    type: "HEROES_FETCHED",
-    payload: heroes,
-  };
-};
+// ----create action with createAction()
+export const heroesFetched = createAction("HEROES_FETCHED");
+// export const heroesFetched = (heroes) => {
+//   return {
+//     type: "HEROES_FETCHED",
+//     payload: heroes,
+//   };
+// };
 
 export const heroesFetchingError = () => {
   return {
@@ -37,12 +41,17 @@ export const heroesDelete = (value) => {
     payload: value,
   };
 };
-export const filtersGet = (data) => {
-  return {
-    type: "FILERS_GET",
-    payload: data,
-  };
-};
+
+// ----create action with createAction()
+// --- параметр передається в payload автоматично
+export const filtersGet = createAction("FILERS_GET");
+
+// export const filtersGet = (data) => {
+//   return {
+//     type: "FILERS_GET",
+//     payload: data,
+//   };
+// };
 
 export const filterTypeToggle = (type) => {
   return {
