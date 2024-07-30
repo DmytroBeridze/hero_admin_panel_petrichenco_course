@@ -8,13 +8,13 @@ const filterRuducer = (state = initialState, action) => {
     case "FILERS_GET":
       return {
         ...state,
-        filters: (state.filters = action.payload),
+        filters: action.payload,
       };
 
     case "FILTER_TYPE_TOGGLE":
       return {
         ...state,
-        filterType: (state.filterType = action.payload),
+        filterType: action.payload,
       };
 
     default:

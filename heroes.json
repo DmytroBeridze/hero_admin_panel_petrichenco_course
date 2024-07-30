@@ -26,9 +26,9 @@
     },
     {
       "name": "Dimon",
-      "description": "applyMiddleware",
+      "description": "customMiddleWare",
       "element": "wind",
-      "id": 6
+      "id": "3d901ad3-6a96-4706-8894-2a3c85199c11"
     }
   ],
   "filters": [
