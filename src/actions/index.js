@@ -15,11 +15,12 @@ export const fetchFilters = (request) => (dispatch) => {
   );
 };
 
-export const heroesFetching = () => {
-  return {
-    type: "HEROES_FETCHING",
-  };
-};
+export const heroesFetching = createAction("HEROES_FETCHING");
+// export const heroesFetching = () => {
+//   return {
+//     type: "HEROES_FETCHING",
+//   };
+// };
 
 // ----create action with createAction()
 export const heroesFetched = createAction("HEROES_FETCHED");
@@ -30,17 +31,22 @@ export const heroesFetched = createAction("HEROES_FETCHED");
 //   };
 // };
 
-export const heroesFetchingError = () => {
-  return {
-    type: "HEROES_FETCHING_ERROR",
-  };
-};
-export const heroesDelete = (value) => {
-  return {
-    type: "HEROES_DELETE",
-    payload: value,
-  };
-};
+// ----create action with createAction()
+export const heroesFetchingError = createAction("HEROES_FETCHING_ERROR");
+// export const heroesFetchingError = () => {
+//   return {
+//     type: "HEROES_FETCHING_ERROR",
+//   };
+// };
+
+export const heroesDelete = createAction("HEROES_DELETE");
+// ----create action with createAction()
+// export const heroesDelete = (value) => {
+//   return {
+//     type: "HEROES_DELETE",
+//     payload: value,
+//   };
+// };
 
 // ----create action with createAction()
 // --- параметр передається в payload автоматично
@@ -53,16 +59,19 @@ export const filtersGet = createAction("FILERS_GET");
 //   };
 // };
 
-export const filterTypeToggle = (type) => {
-  return {
-    type: "FILTER_TYPE_TOGGLE",
-    payload: type,
-  };
-};
+// ----create action with createAction()
+export const filterTypeToggle = createAction("FILTER_TYPE_TOGGLE");
+// export const filterTypeToggle = (type) => {
+//   return {
+//     type: "FILTER_TYPE_TOGGLE",
+//     payload: type,
+//   };
+// };
 
-export const addPerson = (data) => {
-  return {
-    type: "ADD_HERO",
-    payload: data,
-  };
-};
+export const addPerson = createAction("ADD_HERO");
+// export const addPerson = (data) => {
+//   return {
+//     type: "ADD_HERO",
+//     payload: data,
+//   };
+// };
