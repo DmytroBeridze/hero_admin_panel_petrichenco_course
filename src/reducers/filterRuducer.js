@@ -1,25 +1,7 @@
-import { createReducer } from "@reduxjs/toolkit";
-import { filtersGet, filterTypeToggle } from "../actions";
-const initialState = {
-  filters: [],
-  filterType: "all",
-};
-
-const filterRuducer = createReducer(initialState, (builder) => {
-  builder
-    .addCase(filtersGet, (state, action) => ({
-      ...state,
-      filters: action.payload,
-    }))
-
-    .addCase(filterTypeToggle, (state, action) => {
-      return {
-        ...state,
-        filterType: action.payload,
-      };
-    })
-    .addDefaultCase((state, action) => {});
-});
+// const initialState = {
+//   filters: [],
+//   filterType: "all",
+// };
 
 // const filterRuducer = (state = initialState, action) => {
 //   switch (action.type) {
@@ -40,4 +22,4 @@ const filterRuducer = createReducer(initialState, (builder) => {
 //   }
 // };
 
-export default filterRuducer;
+// export default filterRuducer;

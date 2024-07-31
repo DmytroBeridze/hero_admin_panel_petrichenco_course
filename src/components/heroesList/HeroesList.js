@@ -2,13 +2,14 @@ import { useHttp } from "../../hooks/http.hook";
 import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createSelector } from "reselect";
+import { heroesDelete } from "./heroesSlice";
 
 import {
   // heroesFetching,
   // heroesFetched,
   // heroesFetchingError,
 
-  heroesDelete,
+  // heroesDelete,
   fetchHeroes,
 } from "../../actions";
 import HeroesListItem from "../heroesListItem/HeroesListItem";

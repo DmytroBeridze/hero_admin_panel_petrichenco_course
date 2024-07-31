@@ -8,7 +8,8 @@
 import { useEffect } from "react";
 import { useHttp } from "../../hooks/http.hook";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchFilters, filtersGet, filterTypeToggle } from "../../actions";
+import { fetchFilters } from "../../actions";
+import { filterTypeToggle } from "./filterSlice";
 import classNames from "classnames";
 const HeroesFilters = () => {
   const { request } = useHttp();

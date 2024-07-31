@@ -1,51 +1,7 @@
-import { createReducer } from "@reduxjs/toolkit";
-import {
-  heroesFetching,
-  heroesFetched,
-  heroesFetchingError,
-  heroesDelete,
-  addPerson,
-} from "../actions";
-const initialState = {
-  heroes: [],
-  heroesLoadingStatus: "idle",
-};
-
-const heroesReducer = createReducer(initialState, (builder) => {
-  builder
-    .addCase(heroesFetching, (state, action) => {
-      return {
-        ...state,
-        heroesLoadingStatus: "loading",
-      };
-    })
-    .addCase(heroesFetched, (state, action) => {
-      return {
-        ...state,
-        heroes: action.payload,
-        heroesLoadingStatus: "idle",
-      };
-    })
-    .addCase(heroesFetchingError, (state, action) => {
-      return {
-        ...state,
-        heroesLoadingStatus: "error",
-      };
-    })
-    .addCase(heroesDelete, (state, action) => {
-      return {
-        ...state,
-        heroes: state.heroes.filter((elem) => elem.id !== action.payload),
-      };
-    })
-    .addCase(addPerson, (state, action) => {
-      return {
-        ...state,
-        heroes: [...state.heroes, action.payload],
-      };
-    })
-    .addDefaultCase((state, action) => {});
-});
+// const initialState = {
+//   heroes: [],
+//   heroesLoadingStatus: "idle",
+// };
 
 // const heroesReducer = (state = initialState, action) => {
 //   switch (action.type) {
@@ -81,4 +37,4 @@ const heroesReducer = createReducer(initialState, (builder) => {
 //   }
 // };
 
-export default heroesReducer;
+// export default heroesReducer;

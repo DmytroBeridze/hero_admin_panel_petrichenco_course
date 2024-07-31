@@ -23,12 +23,6 @@
       "description": "\nsthdtyjtryj",
       "element": "earth",
       "id": 5
-    },
-    {
-      "name": "cowboy bebop",
-      "description": "   return {\n//         ...state,\n//         heroes: [...state.heroes, action.payload],\n//       };",
-      "element": "earth",
-      "id": 6
     }
   ],
   "filters": [

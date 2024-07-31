@@ -12,7 +12,7 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import { useHttp } from "../../hooks/http.hook";
-import { addPerson } from "../../actions";
+import { heroesAdd } from "../../components/heroesList/heroesSlice";
 
 const HeroesAddForm = () => {
   const { filters } = useSelector((state) => state.filterRuducer);
@@ -25,7 +25,7 @@ const HeroesAddForm = () => {
       "http://localhost:3001/heroes",
       "POST",
       JSON.stringify(formData)
-    ).then((data) => dispatch(addPerson(data)));
+    ).then((data) => dispatch(heroesAdd(data)));
   };
   return (
     <form
