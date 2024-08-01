@@ -23,6 +23,12 @@
       "description": "\nsthdtyjtryj",
       "element": "earth",
       "id": 5
+    },
+    {
+      "name": "bebop",
+      "description": "fetchHeroes",
+      "element": "wind",
+      "id": 6
     }
   ],
   "filters": [

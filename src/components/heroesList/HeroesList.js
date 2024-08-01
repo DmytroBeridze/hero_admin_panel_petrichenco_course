@@ -2,16 +2,15 @@ import { useHttp } from "../../hooks/http.hook";
 import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createSelector } from "reselect";
-import { heroesDelete } from "./heroesSlice";
+import { heroesDelete, fetchHeroes } from "./heroesSlice";
 
-import {
-  // heroesFetching,
-  // heroesFetched,
-  // heroesFetchingError,
+import // heroesFetching,
+// heroesFetched,
+// heroesFetchingError,
 
-  // heroesDelete,
-  fetchHeroes,
-} from "../../actions";
+// heroesDelete,
+// fetchHeroes,
+"../../actions";
 import HeroesListItem from "../heroesListItem/HeroesListItem";
 import Spinner from "../spinner/Spinner";
 
@@ -27,7 +26,7 @@ const HeroesList = () => {
 
   // ---------get elements
   useEffect(() => {
-    dispatch(fetchHeroes(request));
+    dispatch(fetchHeroes());
     // dispatch(heroesFetching());
     // request("http://localhost:3001/heroes")
     //   .then((data) => dispatch(heroesFetched(data)))

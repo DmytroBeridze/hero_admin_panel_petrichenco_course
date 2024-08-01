@@ -1,35 +1,66 @@
 import { useCallback } from "react";
 
 export const useHttp = () => {
-    // const [process, setProcess] = useState('waiting');
+  // createAsyncThunk не працює якщо тут є useCallback
+  const request = async (
+    url,
+    method = "GET",
+    body = null,
+    headers = { "Content-Type": "application/json" }
+  ) => {
+    // setProcess('loading');
 
-    const request = useCallback(async (url, method = 'GET', body = null, headers = {'Content-Type': 'application/json'}) => {
+    try {
+      const response = await fetch(url, { method, body, headers });
 
-        // setProcess('loading');
+      if (!response.ok) {
+        throw new Error(`Could not fetch ${url}, status: ${response.status}`);
+      }
 
-        try {
-            const response = await fetch(url, {method, body, headers});
+      const data = await response.json();
 
-            if (!response.ok) {
-                throw new Error(`Could not fetch ${url}, status: ${response.status}`);
-            }
+      return data;
+    } catch (e) {
+      // setProcess('error');
+      throw e;
+    }
+  };
 
-            const data = await response.json();
+  //   const request = useCallback(
+  //     async (
+  //       url,
+  //       method = "GET",
+  //       body = null,
+  //       headers = { "Content-Type": "application/json" }
+  //     ) => {
+  //       // setProcess('loading');
 
-            return data;
-        } catch(e) {
-            // setProcess('error');
-            throw e;
-        }
-    }, []);
+  //       try {
+  //         const response = await fetch(url, { method, body, headers });
 
-    // const clearError = useCallback(() => {
-        // setProcess('loading');
-    // }, []);
+  //         if (!response.ok) {
+  //           throw new Error(`Could not fetch ${url}, status: ${response.status}`);
+  //         }
 
-    return {request, 
-            // clearError, 
-            // process, 
-            // setProcess
-        }
-}
+  //         const data = await response.json();
+
+  //         return data;
+  //       } catch (e) {
+  //         // setProcess('error');
+  //         throw e;
+  //       }
+  //     },
+  //     []
+  //   );
+
+  // const clearError = useCallback(() => {
+  // setProcess('loading');
+  // }, []);
+
+  return {
+    request,
+    // clearError,
+    // process,
+    // setProcess
+  };
+};
