@@ -14,45 +14,50 @@
     },
     {
       "name": "Dimon",
-      "description": "filetredMemoisHeroesList",
-      "element": "fire",
+      "description": "heroesAdapter",
+      "element": "wind",
       "id": 4
     },
     {
       "name": "Dimon",
-      "description": "\nsthdtyjtryj",
+      "description": "selectAll",
       "element": "earth",
       "id": 5
     },
     {
-      "name": "bebop",
-      "description": "fetchHeroes",
+      "name": "Dimon",
+      "description": "filetredMemoisHeroesList",
       "element": "wind",
       "id": 6
     }
   ],
   "filters": [
     {
+      "id": "all",
       "name": "Все",
       "element": "all",
       "classElem": "btn-outline-dark"
     },
     {
+      "id": "fire",
       "name": "Огонь",
       "element": "fire",
       "classElem": "btn-danger"
     },
     {
+      "id": "water",
       "name": "Вода",
       "element": "water",
       "classElem": "btn-primary"
     },
     {
+      "id": "wind",
       "name": "Ветер",
       "element": "wind",
       "classElem": "btn-success"
     },
     {
+      "id": "earth",
       "name": "Земля",
       "element": "earth",
       "classElem": "btn-secondary"

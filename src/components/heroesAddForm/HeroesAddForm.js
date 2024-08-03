@@ -13,6 +13,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import { useHttp } from "../../hooks/http.hook";
 import { heroesAdd } from "../../components/heroesList/heroesSlice";
+import { selectAll } from "../heroesFilters/filterSlice";
+import store from "../../store";
 
 const HeroesAddForm = () => {
   const { filters } = useSelector((state) => state.filterRuducer);
@@ -82,10 +84,14 @@ const HeroesAddForm = () => {
           }
         >
           <option>Я владею элементом...</option>
-          {filters.map(({ element, ...props }) => {
+          {selectAll(store.getState()).map(({ element, ...props }) => {
             if (element === "all") return;
             return <View element={element} {...props} key={element} />;
           })}
+          {/* {filters.map(({ element, ...props }) => {
+            if (element === "all") return;
+            return <View element={element} {...props} key={element} />;
+          })} */}
         </select>
       </div>
 

@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import { useHttp } from "../../hooks/http.hook";
 import { useSelector, useDispatch } from "react-redux";
 // import { fetchFilters } from "../../actions";
-import { fetchFilters } from "./filterSlice";
-import { filterTypeToggle } from "./filterSlice";
+import { filterTypeToggle, selectAll, fetchFilters } from "./filterSlice";
 import classNames from "classnames";
+import store from "../../store";
 const HeroesFilters = () => {
   const { request } = useHttp();
   const { filters, filterType } = useSelector((state) => state.filterRuducer);
@@ -12,9 +12,6 @@ const HeroesFilters = () => {
 
   const getFilters = () => {
     dispatch(fetchFilters(request));
-    // request("http://localhost:3001/filters").then((data) =>
-    //   dispatch(filtersGet(data))
-    // );
   };
   useEffect(() => {
     getFilters();
@@ -28,7 +25,7 @@ const HeroesFilters = () => {
       <div className="card-body">
         <p className="card-text">Отфильтруйте героев по элементам</p>
         <div className="btn-group">
-          {filters.map(({ element, ...props }) => {
+          {selectAll(store.getState()).map(({ element, ...props }) => {
             return (
               <View
                 key={element}
@@ -39,6 +36,17 @@ const HeroesFilters = () => {
               />
             );
           })}
+          {/* {filters.map(({ element, ...props }) => {
+            return (
+              <View
+                key={element}
+                {...props}
+                filterType={filterType}
+                element={element}
+                toggleFilter={toggleFilter}
+              />
+            );
+          })} */}
         </div>
       </div>
     </div>
